@@ -1,14 +1,9 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
 
-namespace app_api
+public class Produs
 {
-    public class User
-    {
-        public int Id { get; set; }
-        //SA FAC ASTA SA FIE UNIC
-        public string UserName { get; set; } = String.Empty;
-        public string EMail { get; set; } = String.Empty;
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
-    }
+    public int Id { get; set; }
+    public string Nume { get; set; }
+    public decimal Pret { get; set; }
+    public List<ProdusComanda> ProduseComanda { get; set; }
 }

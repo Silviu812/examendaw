@@ -1,14 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace app_api
+public class AppDbContext : DbContext
 {
-    public class UserDBContext : DbContext
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+    public DbSet<User> Utilizatori { get; set; }
+    public DbSet<Comanda> Comenzi { get; set; }
+    public DbSet<Produs> Produse { get; set; }
+    public DbSet<ProdusComanda> ProduseComanda { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        public UserDBContext(DbContextOptions<UserDBContext> options) : base(options)
-        {
+        modelBuilder.Entity<ProdusComanda>()
+            .HasKey(pc => new { pc.ComandaId, pc.ProdusId });
 
-        }
-        public DbSet<User> Users { get; set; } = null!;
-
+        // Alte configurări necesare
     }
 }
