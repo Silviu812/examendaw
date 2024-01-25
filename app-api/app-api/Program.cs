@@ -1,4 +1,6 @@
 
+using Microsoft.Extensions.DependencyInjection;
+
 namespace app_api
 {
     public class Program
@@ -9,7 +11,7 @@ namespace app_api
 
             // Add services to the container.
             builder.Services.AddControllers();
-            builder.Services.AddDbContext<UserDBContext>(builder.Configuration.GetConnectionString("UserDatabase");
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
