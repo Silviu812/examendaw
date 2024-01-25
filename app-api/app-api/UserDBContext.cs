@@ -13,7 +13,5 @@ public class AppDbContext : DbContext
     {
         modelBuilder.Entity<ProdusComanda>()
             .HasKey(pc => new { pc.ComandaId, pc.ProdusId });
-
-        // Alte configurări necesare
     }
 }
