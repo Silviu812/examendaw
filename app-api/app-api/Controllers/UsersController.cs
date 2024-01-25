@@ -10,18 +10,11 @@ namespace app_api
     public class UsersController : ControllerBase
     {
         private readonly AppDbContext _context;
-        private readonly ILogger<UsersController> _logger;
 
-        public UsersController(AppDbContext context, ILogger<UsersController> logger)
-        {
-            _context = context;
-            _logger = logger;
-        }
 
         [HttpGet]
         public IEnumerable<User> GetUtilizatori()
         {
-            _logger.LogInformation("Fetching all users");
             return _context.Utilizatori.ToList();
         }
 
@@ -33,7 +26,6 @@ namespace app_api
 
             if (utilizator == null)
             {
-                _logger.LogInformation($"User with id {id} not found.");
                 return BadRequest();
             }
 
